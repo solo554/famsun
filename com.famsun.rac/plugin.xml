@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            name="批量导入"
+            categoryId="com.famsun.rac.commands.category"
+            id="com.famsun.rac.commands.importItemCommand">
+      </command>
+      <command
+            name="新建零件"
+            categoryId="com.famsun.rac.commands.category"
+            id="com.famsun.rac.commands.createNewItemCommand">
+      </command>
+          
+      <command
+            name="新建文件夹"
+            categoryId="com.famsun.rac.commands.category"
+            id="com.famsun.rac.commands.createNewFolderCommand">
+     </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.famsun.rac.commands.importItemCommand"
+            class="com.famsun.rac.handlers.ImportItemHandler">
+      </handler>
+      <handler
+            commandId="com.famsun.rac.commands.createNewItemCommand"
+            class="com.famsun.rac.handlers.CreateNewItemHandler">
+      </handler>
+
+      <handler
+            commandId="com.famsun.rac.commands.createNewFolderCommand"
+            class="com.famsun.rac.handlers.NewFolderHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=help">
+         <menu
+               label="FAMSUN"
+               mnemonic="M"
+               id="com.famsun.rac.menus.uiMenu">
+            
+            <command
+                  commandId="com.famsun.rac.commands.createNewItemCommand"
+                  mnemonic="S"
+                  id="com.famsun.rac.menus.CreateNewItem">
+            </command>
+            <command
+                  commandId="com.famsun.rac.commands.createNewFolderCommand"
+                  mnemonic="S"
+                  id="com.famsun.rac.menus.CreateFolder">
+            </command>
+            <command
+                  commandId="com.famsun.rac.commands.importItemCommand"
+                  mnemonic="S"
+                  id="com.famsun.rac.menus.ImportItem">
+            </command>
+           
+
+         </menu>
+         
+      </menuContribution>
+     
+   </extension>
+   <extension
+         point="com.teamcenter.rac.util.tc_properties">
+   </extension>
+
+</plugin>
